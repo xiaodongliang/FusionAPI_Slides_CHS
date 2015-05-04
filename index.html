@@ -338,14 +338,55 @@ sketch.sketchDimensions.addDiameterDimension(circle1, adsk.core.Point3D.create(3
 				</section> 
 
 				<section>					 
-						<h2>脚本和插件</h2>					 					 
-						<ul>							
-								<li>脚本类似于宏命令</li>								 
-								<li>插件一般是Fusion启动时就加载运行</li>								 
-								<li>插件需要额外的manifest文件做配置</li> 
-								<li>需要特别独立的功能时可考虑插件</li>
-								<li>脚本方式可用manifest方式，也可不用</li>								 
-						</ul> 
+						 
+						<section id="fragments-script-addin">					
+							<h2>脚本和插件</h2>	
+							<ul>							
+									<li>脚本类似于宏命令</li>								 
+									<li>插件一般是Fusion启动时就加载运行</li>								 
+									<li>插件需要额外的manifest文件做配置</li> 
+									<li>需要特别独立的功能时可考虑插件</li>
+									<li>脚本方式可用manifest方式，也可不用</li>								 
+							</ul> 		
+						</section>
+						<section id="fragments-script-addin"> 
+							<h2>manifest文件 (Javascript)</h2>	
+							<pre><code data-trim >
+ {
+	"autodeskProduct":	"Fusion360",
+	"type":	"addin",
+	"id":	"ea34afff-f444-4ac7-95e5-d9ac5c574b6e",
+	"author":	"Autodesk Inc.",
+	"description":	{
+		"":	"This is sample addin."
+	},
+	"version":	"0.0.1",
+	"runOnStartup":	false,
+	"supportedOS":	"windows|mac",
+	"autodeskLibraries":	["application", "dashboard", "geometry", "materials", "userInterface", "utilities", "bRep", "components", "construction", "features", "fusion", "meshBody", "meshData", "sketch", "tSpline"]
+}
+					</code></pre>
+						</section>
+						
+					<section id="fragments-script-addin"> 
+							<h2>manifest文件 (Python)</h2>	
+							<pre><code data-trim >
+ {
+    "autodeskProduct":"Fusion360",
+    "type":"addin",
+    "id":"319679C5-AF6D-4A46-862D-93414F1AE117",
+    "author":"Autodesk Inc.",
+    "description":{
+        "":"This is sample addin."
+    },
+    "version":"0.0.1",
+    "runOnStartup":false,
+    "supportedOS":"windows|mac"
+}
+					</code></pre>
+						</section>	
+						
+					
 				</section>
 				
 				<section data-transition="slide" data-background="#218a65" data-background-transition="zoom">
