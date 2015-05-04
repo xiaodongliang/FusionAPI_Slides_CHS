@@ -1,9 +1,438 @@
-﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" >
-<head>
-    <title>Untitled Page</title>
-</head>
-<body>
+<!doctype html>
+<html lang="en">
 
-</body>
+	<head>
+		<meta charset="utf-8">
+
+		<title>Fusion 360 API入门课程</title>
+
+		<meta name="description" content="A framework for easily creating beautiful presentations using HTML">
+		<meta name="author" content="Hakim El Hattab">
+
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+
+		<link rel="stylesheet" href="css/reveal.css">
+		<link rel="stylesheet" href="css/theme/black.css" id="theme">
+
+		<!-- Code syntax highlighting -->
+		<link rel="stylesheet" href="lib/css/zenburn.css">
+
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+
+		<!--[if lt IE 9]>
+		<script src="lib/js/html5shiv.js"></script>
+		<![endif]-->
+	</head>
+
+	<body>
+
+		<div class="reveal">
+
+			<!-- Any section element inside of this container is displayed as a slide -->
+			<div class="slides">
+				<section>
+					<h1>Fusion 360 API 入门</h1>
+					<P></P>
+					<P></P>
+					<h3>梁晓冬</h3>
+					<P></P>
+					<h6>开发顾问</h6>
+					<P></P>
+					<h6>DevTech中国区经理</h6>
+					<P></P>
+					<h6>开发技术支持部(DevTech)</h6>	
+				    <p><font size="5">在线PPT网址短连接: http://dwz.cn/I33Vw  注意大小写</font></p>
+					<p><font size="5">全连接: http://xiaodongliang.github.io/AutoCADIO_Slides_CHS/</font></p>
+				</section>
+
+				<section>
+					<h2>内容</h2>
+					<p>
+						<ul>
+						<li>Fusion 360 简介</li>
+						<li>API 概览</li>
+						<li>Javascript API</li>
+						<li>Python API</li>
+						<li>插件</li>
+					</ul>
+					</p>
+				</section>
+				
+				<section>
+					<h2>三维设计的新需求</h2>
+					<p>					 
+					<img width="800" height="400" data-src="images/3drequirement.jpg" alt="Down arrow">	
+					</p>
+				</section>
+				
+				<section>
+					<h2>来看一个视频</h2>
+					<p>					 
+					<embed src="http://player.youku.com/player.php/sid/XOTQ3Nzk1MzUy/v.swf" allowFullScreen="true" quality="high" width="480" height="400" align="middle" allowScriptAccess="always" type="application/x-shockwave-flash"></embed>
+					</p>
+					<p><font size="5">注：广告都是浮云</font></p>
+				</section>
+				
+				<section>
+					<h2>Fusion 360</h2>
+					<p>
+					<font size="6">基于云，从概念设计到成品的三维CAD/CAM协作设计平台</font>
+					<img width="600" height="400" data-src="images/fusion360.png" alt="Down arrow">	
+					</p>
+				</section>
+				
+				<section>
+					<h2>新时代的设计概念</h2>
+					<p>					
+					<img width="800" height="500" data-src="images/workflow.png" alt="Down arrow">	
+					</p>
+				</section>
+				
+				<section>
+					<h2>设计可以如此</h2>
+					<p><a href="https://fusion360.autodesk.com/projects/editor_pick">Fusion 360 展台</a></p>
+					<p>					
+					<img width="800" height="500" data-src="images/desginlikethis.jpg" alt="Down arrow">	
+					</p>
+				</section>
+				
+				<section>
+					<section id="fragments">
+					<h2>谁在用</h2>	
+					<ul>							
+							<li><a href="http://modbot.com/">Modbot</a><p></p><img width="300" height="200" data-src="images/modbot.gif" alt="Down arrow"></li>							 
+							<li><a href="http://www.lumitoro.com/pages/about-3d-printing">Lumitoro</a><p></p><img width="300" height="200" data-src="images/lumitoro.jpg" alt="Down arrow"></li>							 							
+								 
+					</ul>	
+					</section>	
+					<section id="fragments">					 
+					<ul>							
+							<li><a href="">公路赛车</a><p></p><img width="300" height="200" data-src="images/roadbike.png" alt="Down arrow"></li>							 
+							<li><a href="">Local Motors</a><p></p><img width="300" height="200" data-src="images/localmobile.jpg" alt="Down arrow"></li>							 							 
+								 
+					</ul>	
+					</section>
+					
+					<section id="fragments">					 
+					<ul>														
+							<li><a href="https://www.keyshot.com/">Keyshot</a><p></p><img width="500" height="400" data-src="images/keyshot.png" alt="Down arrow"></li>							 						 
+								 
+					</ul>	
+					</section>
+					
+				</section>
+				
+				<section data-transition="slide" data-background="#4d7e65" data-background-transition="zoom">
+					<h1>API拓展?</h1> 
+				</section>
+				
+				<section>
+					<h2>Fusion API - 目前是客户端的API</h2>	
+						<ul>							
+								<li>脚本</li>								 								 
+								<li>插件</li> 								 
+						</ul>
+					<p></p>							
+					<img width="700" height="400" data-src="images/keywords.png" alt="Down arrow">	
+				</section>
+				
+				<section>
+					<h2>脚本与插件管理器</h2>	
+					
+					<img width="800" height="600" data-src="images/addinmanager.bmp" alt="Down arrow">	
+				</section>
+				
+				<section>
+					<section id="fragments-api-progress">
+						<h2>API 演化过程</h2>					 					 
+						<ul>							
+								<li>2014年9月引入Javascript 脚本形式</li>								 
+								<li>2014年11月引入Python脚本形式</li>								 
+								<li>2015年3月推出插件形式</li> 
+								<li>未来计划推出C++的方式</li> 
+								<li>多编程语言的背后是单一的API</li> 
+								<li>为每种编程语言包装了接口</li> 							
+						</ul>	
+					</section>
+					<section id="fragments-api-progress">										 					 
+						<ul>							
+								<li>面向对象层级结构</li>								 
+								<li>API对象对应界面中的对象或功能</li>								 
+								<li>对象是包含关系，而非继承关系</li> 
+								<li>collection: 对象集合</li>
+								<img width="800" height="500" data-src="images/objs.png" alt="Down arrow">									
+						</ul>	
+					</section> 
+				</section> 
+				 
+				 <section>
+					<section id="fragments-create-extrude">
+						<h2>一个示例：创建拉伸特征</h2>				 					 
+						<img width="800" height="500" data-src="images/extrudef.bmp" alt="Down arrow">	
+					</section>
+					<section id="fragments-create-extrude">										 					 
+						 <pre><code data-trim contenteditable>
+app = adsk.core.Application.get()
+design = app.activeProduct
+
+# Get the root component of the active design. 
+rootComp = design.rootComponent 
+
+# Create a new sketch on the xy plane. 
+sketch = rootComp.sketches.add(rootComp.xYConstructionPlane) 
+
+# Draw a circle. 
+circles = sketch.sketchCurves.sketchCircles 
+circle1 = circles.addByCenterRadius(adsk.core.Point3D.create(0, 0, 0), 2) 
+
+# Get the profile defined by the circle. 
+prof = sketch.profiles.item(0) 
+
+# Create an extrusion input to be able to define the input needed for an extrusion 
+# while specifying the profile and that a new component is to be created 
+extrudes = rootComp.features.extrudeFeatures 
+extInput = extrudes.createInput(prof, adsk.fusion.FeatureOperations.NewComponentFeatureOperation) 
+
+# Define that the extent is a distance extent of 5 cm. 
+extInput.setDistanceExtent(False, adsk.core.ValueInput.createByReal(5)) 
+
+# Create the extrusion. 
+ext = extrudes.add(extInput) 
+
+					</code></pre>	
+					</section> 
+				</section> 
+
+
+				<section>
+					<section id="fragments-api-ability">					
+						<font size="8">2015年3月发布版支持的API （绿色部分）</font>					 					 
+						<p></p>
+						<font size="6">
+						<ul>							
+								<li>特征和时间轴</li>								 
+								<li>草图, 构造特征</li>								 								 
+								<li>参数</li>
+								<li>材质,外观 </li>							 
+								<li>基本的A360访问</li> 
+						</ul>
+						</font>	
+						<img width="700" height="400" data-src="images/apiability1.bmp" alt="Down arrow">			
+					</section>
+					<section id="fragments-api-ability">
+						<font size="6">
+						<ul>							
+								<li>装配结构</li>								 
+								<li>BRep访问，三角网格</li>								 
+								<li>用户设置</li> 
+								<li>相机相关功能</li>
+								<li>命令和用户菜单</li>								 						 
+						</ul>	
+						</font>	
+						<img width="700" height="400" data-src="images/apiability2.bmp" alt="Down arrow">	
+					</section>
+					<section id="fragments-api-ability">
+						<h4>未来功能</h4>	 
+						<ul>							
+								<li>支持C++</li>								 
+								<li>装配约束和链接</li>								 
+								<li>剩下还未支持的特征</li> 
+								<li>T-Splines</li>
+								<li>工程图</li>
+								<li>机加工（CAM）</li>								 
+								<li>更多...</li>								 								
+						</ul>							 
+					</section>
+				</section> 
+
+				<section>					 
+						<h2>Javascript</h2>					 					 
+						<ul>							
+								<li>不能使用额外的HTML界面</li>								 
+								<li>无法访问本地文件系统</li>								 
+								<li>可用任何编辑器编写，或使用Fusion内置的Bracket</li> 
+								<li>借用Chrome或Webkit进行调试</li>
+								<li>进程外运行</li>
+								<li>可加载第三方JS库（和HTML界面相关的除外）</li>								 
+						</ul> 
+				</section>	
+
+				<section>					 
+						<h2>Python</h2>					 					 
+						<ul>							
+								<li>运行于Fusion进程内</li>								 
+								<li>比JS要快</li>								 
+								<li>可访问本地文件系统</li> 
+								<li>可用任何编辑器编写，或使用Fusion内置的Spyder</li>
+								<li>用Spyder调试</li>
+								<li>可加载第三方Python库</li>								 
+						</ul> 
+				</section>	 
+				
+					<section>	
+					<section id="fragments-one-sample">	
+						<h2>一个例子 （创建草图）</h2>
+						<img width="800" height="600" data-src="images/onesample.png" alt="Down arrow">	
+					</section>	
+					<section id="fragments-one-sample">					 
+						<h2>Javascript</h2>					 					 
+						<pre><code data-trim>
+var app = adsk.core.Application.get();
+var design = app.activeProduct;
+
+// Get the root component of the active design.
+var rootComp = design.rootComponent;
+
+// Create a new sketch on the xy plane.
+var sketches = rootComp.sketches;
+var xyPlane = rootComp.xYConstructionPlane;
+var sketch = sketches.add(xyPlane);
+
+// Draw a circle.
+var circles = sketch.sketchCurves.sketchCircles;
+var circle1 = circles.addByCenterRadius(adsk.core.Point3D.create(0, 0, 0), 2);
+ 
+// Constrain the circle size.
+sketch.sketchDimensions.addDiameterDimension(circle1, adsk.core.Point3D.create(3, 3, 0));
+					</code></pre>
+				</section>	
+				
+				<section id="fragments-one-sample">					 
+						<h2>Python</h2>					 					 
+						<pre><code data-trim>
+app = adsk.core.Application.get()
+
+design = app.activeProduct
+
+# Get the root component of the active design.
+rootComp = design.rootComponent
+
+# Create a new sketch on the xy plane.
+sketches = rootComp.sketches
+xyPlane = rootComp.xYConstructionPlane
+sketch = sketches.add(xyPlane)
+
+# Draw a circle.
+circles = sketch.sketchCurves.sketchCircles
+circle1 = circles.addByCenterRadius(adsk.core.Point3D.create(0, 0, 0), 2)
+        
+# Constrain the circle size.
+sketch.sketchDimensions.addDiameterDimension(circle1, adsk.core.Point3D.create(3, 3, 0))
+
+					</code></pre>
+				</section>	
+</section>	
+
+				<section data-transition="slide" data-background="#317f65" data-background-transition="zoom">
+					<h1>演示脚本</h1>   
+				</section> 
+
+				<section>					 
+						<h2>脚本和插件</h2>					 					 
+						<ul>							
+								<li>脚本类似于宏命令</li>								 
+								<li>插件一般是Fusion启动时就加载运行</li>								 
+								<li>插件需要额外的manifest文件做配置</li> 
+								<li>需要特别独立的功能时可考虑插件</li>
+								<li>脚本方式可用manifest方式，也可不用</li>								 
+						</ul> 
+				</section>
+				
+				<section data-transition="slide" data-background="#218a65" data-background-transition="zoom">
+					<h1>演示插件</h1>   
+				</section>
+				
+				<section>					 
+						<h2>Fusion命令</h2>					 					 
+						<ul>							
+								<li>脚本和插件都可以用</li>								 
+								<li>Fusion自己大部分功能也都是命令的方式</li>								 
+								<li>命令一般对应一个按钮，而按钮背后是一个'定义'，规定执行按钮的相关行为</li> 
+								<li>按钮执行时，命令创建启动</li>
+								<li>可弹出参数输入对话框，用来得到命令需要的数据</li>								 
+								<li>可预览参数产生的效果</li>	
+								<li>自动支持事务，可回滚</li>	
+						</ul> 
+				</section>
+
+				<section data-transition="slide" data-background="#120000" data-background-transition="zoom">
+					<h1>演示命令</h1>   
+				</section>
+				
+				<section>					 
+						<h2><a href="https://autocad.io">在线帮助</a></h2>					 					 
+						<img width="800" height="600" data-src="images/help.png" alt="Down arrow">	 
+				</section>	
+				
+				<section>
+					<h1>参考资料</h1> 
+					<ul>							
+							<li><a href="http://fusion360.autodesk.com/resources">在线帮助</a></li>	
+							<P></P>	
+							<li><a href="http://modthemachine.typepad.com/">Brian的博客</a></li>	
+							<P></P>	
+							<li><a href="http://adndevblog.typepad.com/manufacturing/">ADN制造业博客</a></li>	
+							<P></P>								
+							<li><a href="http://forums.autodesk.com/t5/Autodesk-Fusion-360/ct-p/1234">论坛</a></li>	
+							<P></P>								 							 
+					</ul>	
+				</section>
+
+				<section>
+					<h2>Autodesk ADN 微信公众号</h2>
+					 <img width="300" height="300" data-src="images/wechat.jpg" alt="Down arrow">	
+					 <h6><a href="cn.linkedin.com/in/xiaodongliang">我的linkedIn </a></h6>
+					 <h6> <a href="http://blog.csdn.net/autodeskinventorapi">我的博客</a></h6>
+					 <p><font size="5">在线PPT网址短连接: http://dwz.cn/I33Vw  注意大小写</font></p>
+					 <p><font size="5">全连接: http://xiaodongliang.github.io/AutoCADIO_Slides_CHS/</font></p>
+				</section> 	
+
+				<section>
+					 <img width="800" height="600" data-src="images/Autodesk.png" alt="Down arrow">	
+				</section>  				
+
+				
+			</div>
+
+		</div>
+
+		<script src="lib/js/head.min.js"></script>
+		<script src="js/reveal.js"></script>
+
+		<script>
+
+			// Full list of configuration options available at:
+			// https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				controls: true,
+				progress: true,
+				history: true,
+				center: true,
+
+				transition: 'slide', // none/fade/slide/convex/concave/zoom
+
+				// Optional reveal.js plugins
+				dependencies: [
+					{ src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+					{ src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/highlight/highlight.js', async: true, condition: function() { return !!document.querySelector( 'pre code' ); }, callback: function() { hljs.initHighlightingOnLoad(); } },
+					{ src: 'plugin/zoom-js/zoom.js', async: true },
+					{ src: 'plugin/notes/notes.js', async: true }
+				]
+			});
+
+		</script>
+
+	</body>
 </html>
